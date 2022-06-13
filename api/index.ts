@@ -230,6 +230,7 @@ export default async (req: NowRequest, res: NowResponse) => {
           });
 
           // For each available databases...
+          console.log(fetchedDatabases)
           JSON.parse(fetchedDatabases).results.map(function(db) {
               // Create a new input iption
               database.newOption(db.id, (db.title[0].plain_text ? db.title[0].plain_text : "Untitled"), null)
