@@ -3,7 +3,10 @@ import fetch from "node-fetch";
 
 export default async (req: NowRequest, res: NowResponse) => {
     
-  const UrlFetch = async function (url, options){ return await fetch(url, options).json()}
+  const UrlFetch = async function (url, options){ 
+    const response =  await fetch(url, options)
+    return await response.json()
+  }
   
   const BlueprintService = function(){ 
   
