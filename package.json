@@ -7,6 +7,9 @@
     "start": "vercel dev",
     "deploy": "vercel deploy --prod"
   },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
   "devDependencies": {
     "vercel": "^19.1.1"
   }
