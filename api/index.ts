@@ -413,6 +413,8 @@ export default async (req: NowRequest, res: NowResponse) => {
   }
 
   await Blueprint.onListInputs();
-  return res.json({ message: Blueprint.getInputsToJSON() });
+  await Blueprint.onListInputOptions('database_id');
+
+  return res.json({ message: Blueprint.getInputOptionsToJSON(inputId) });
   
 };
