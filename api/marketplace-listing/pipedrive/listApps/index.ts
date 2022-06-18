@@ -4,7 +4,7 @@ import * as fs from 'fs';
 
 export default async function (req: NowRequest, res: NowResponse) {
 	
-	let rawdata = fs.readFileSync('package.json');
+	let rawdata = fs.readFileSync('../package.json');
 	let student = JSON.parse(rawdata);
 	console.log(student);
     
