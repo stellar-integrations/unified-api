@@ -5,6 +5,9 @@
   "icon": "pipedrive-logo.png",
   "author": "HenriChabrand",
   "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
   "actions": [
     {
       "id": "listApps",
