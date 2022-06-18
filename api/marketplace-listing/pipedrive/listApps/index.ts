@@ -5,13 +5,19 @@ import * as path from 'path';
 
 export default async function (req: NowRequest, res: NowResponse) {
 	
-	const dirContents = fs.readdirSync(__dirname);
-  	console.log(dirContents);
-
-  	const fileContents = fs.readFileSync(path.join(__dirname, '../package.json'),{ encoding: 'utf-8'});
-
-	console.log(fileContents);
-	console.log(JSON.parse(fileContents));
+	
+  	const packageContent = fs.readFileSync(path.join(__dirname, '../package.json'),{ encoding: 'utf-8'})
+	const packageContentJSON = JSON.parse(fileContents)
+	const categories = packageContentJSON.mapper.categories
+	
+	function categoryMapper(source_id){
+		const category = categories.filter(function (cat){ return cat.source == source_id })
+		if(category && category[0] && category[0].unified){
+			return category[0].unified
+		}else{
+			return "UNKNOWN"
+		}
+	}
     
 	const base_url = "https://marketplace.pipedrive.com/api/v1/marketplace/apps/sorted"
 	const url = base_url + "?sort=trending&page=0&limit=12&category=18"
@@ -33,7 +39,7 @@ export default async function (req: NowRequest, res: NowResponse) {
 				installs_count: null,
 				maker_name: app.company_name,
 				created_at: app.firstPublishedAt,
-				main_category: app.categories[0].id				
+				main_category: categoryMapper(app.categories[0].id)				
 			}
 		})],
 		meta:{
