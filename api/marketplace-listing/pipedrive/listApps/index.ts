@@ -7,7 +7,7 @@ export default async function (req: NowRequest, res: NowResponse) {
 	
 	
   	const packageContent = fs.readFileSync(path.join(__dirname, '../package.json'),{ encoding: 'utf-8'})
-	const packageContentJSON = JSON.parse(fileContents)
+	const packageContentJSON = JSON.parse(packageContent)
 	const categories = packageContentJSON.mapper.categories
 	
 	function categoryMapper(source_id){
