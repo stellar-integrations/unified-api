@@ -10,5 +10,21 @@
       "id": "listApps",
       "supported_fields": ["id","slug","name"]
     }
-  ]
+  ],
+  "mapper":{
+    "categories":[
+      {
+        "source":11,
+        "unified":"PHONE"
+      },
+      {
+        "source":18,
+        "unified":"WEBINAR"
+      },
+      {
+        "source":12,
+        "unified":"QUOTES"
+      }  
+    ]
+  }
 }
