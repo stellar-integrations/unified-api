@@ -1,12 +1,14 @@
 import { NowRequest, NowResponse } from "@vercel/node";
 import fetch from "node-fetch";
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async function (req: NowRequest, res: NowResponse) {
     
-	const url = "https://api.hubspot.com/ecosystem/public/v1/views/search?superCategory=SALES&sortField=HUB_INSTALLS&sortOrder=DESC&length=45&offset=0&language=en"
+	const base_url = "https://api.hubspot.com/ecosystem/public/v1/views/search"
+	const url = base_url + "?superCategory=SALES&sortField=HUB_INSTALLS&sortOrder=DESC&length=45&offset=0&language=en"
 	const options = {
 		method: "GET"
 	}
+	
 	const response =  await fetch(url, options)
 	const result = await response.json()
 
