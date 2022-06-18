@@ -1,6 +1,6 @@
 import { NowRequest, NowResponse } from "@vercel/node";
 import fetch from "node-fetch";
-import fs from "fs";
+import * as fs from 'fs';
 
 export default async function (req: NowRequest, res: NowResponse) {
 	
