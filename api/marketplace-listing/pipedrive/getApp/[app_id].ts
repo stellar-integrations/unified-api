@@ -42,8 +42,8 @@ export default async function (req: NowRequest, res: NowResponse) {
     name: result.data.app.name,
     description: result.data.app.description,
     short_description: result.data.app.tagline,
-    icon_url: result.data.app.icon.urls[256x256],
-    thumbnail_urls:result.data.app.icon.screenshots.map(function(screenshot){ return screenshot.urls[1280x800] })
+    icon_url: result.data.app.icon.urls["256x256"],
+    thumbnail_urls:result.data.app.icon.screenshots.map(function(screenshot){ return screenshot.urls["1280x800"] })
     main_category: categoryMapper(result.data.app.category_ids[0]),
     maker_name: result.data.app.company_name,
     rating_avg: result.data.app.ratings.scores.average,
