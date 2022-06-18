@@ -1,0 +1,14 @@
+{
+  "id": "piredrive",
+  "name": "Pipedrive",
+  "description": "The first CRM designed by salespeople, for salespeople.",
+  "icon": "pipedrive-logo.png",
+  "author": "HenriChabrand",
+  "license": "MIT",
+  "actions": [
+    {
+      "id": "listApps",
+      "supported_fields": ["id","slug","name"]
+    }
+  ]
+}
