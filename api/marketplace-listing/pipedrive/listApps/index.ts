@@ -19,7 +19,7 @@ export default async function (req: NowRequest, res: NowResponse) {
 				slug: app.app_path,
 				name: app.name,
 				short_description: app.tagline,
-				icon_url: app.icon.urls.256x256,
+				icon_url: app.icon.urls["256x256"],
 				installs_count: null,
 				maker_name: app.company_name,
 				created_at: app.firstPublishedAt,
