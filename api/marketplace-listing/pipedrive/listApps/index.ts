@@ -1,12 +1,17 @@
 import { NowRequest, NowResponse } from "@vercel/node";
 import fetch from "node-fetch";
 import * as fs from 'fs';
+import * as path from 'path';
 
 export default async function (req: NowRequest, res: NowResponse) {
 	
-	let rawdata = fs.readFileSync('../package.json');
-	let student = JSON.parse(rawdata);
-	console.log(student);
+	const dirContents = fs.readdirSync(__dirname);
+  	console.log(dirContents);
+
+  	const fileContents = fs.readFileSync(path.join(__dirname, '../package.json'),{ encoding: 'utf-8'});
+
+	console.log(fileContents);
+	console.log(JSON.parse(fileContents));
     
 	const base_url = "https://marketplace.pipedrive.com/api/v1/marketplace/apps/sorted"
 	const url = base_url + "?sort=trending&page=0&limit=12&category=18"
