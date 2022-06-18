@@ -1,14 +1,24 @@
 import { NowRequest, NowResponse } from "@vercel/node";
 import fetch from "node-fetch";
-import * as fs from 'fs';
-import * as path from 'path';
 
 export default async function (req: NowRequest, res: NowResponse) {
 	
 	
-  	const packageContent = fs.readFileSync(path.join(__dirname, '../package.json'),{ encoding: 'utf-8'})
-	const packageContentJSON = JSON.parse(packageContent)
-	const categories = packageContentJSON.mapper.categories
+  	
+	const categories = [
+	      {
+		"source":11,
+		"unified":"PHONE"
+	      },
+	      {
+		"source":18,
+		"unified":"WEBINAR"
+	      },
+	      {
+		"source":12,
+		"unified":"QUOTES"
+	      }  
+	    ]
 	
 	function categoryMapper(source_id){
 		const category = categories.filter(function (cat){ return cat.source == source_id })
